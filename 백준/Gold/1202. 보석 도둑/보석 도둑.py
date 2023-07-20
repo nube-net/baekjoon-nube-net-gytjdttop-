@@ -4,7 +4,8 @@ input=sys.stdin.readline
 n,k = map(int,input().split())
 gems = [[*map(int,input().split())] for _ in range(n)]
 bags = [int(input()) for _ in range(k)]
-gems.sort();bags.sort()
+gems.sort()
+bags.sort()
 result = 0;tmp = [] 
  
 for bag in bags:
