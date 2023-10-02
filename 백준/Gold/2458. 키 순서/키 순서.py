@@ -1,7 +1,3 @@
-#집합 활용(파이썬통과), n^3플로이드와샬(pypy통과)
-# 다른분 풀이보니 효율적인건 DFS, BFS였음
-
-#집합 활용 풀이
 import sys
 inputF = sys.stdin.readline
 
@@ -47,33 +43,3 @@ for i in range(n):
         count +=1
 
 print(count)
-'''
-# 기본 플로이드-와샬 알고리즘 활용
-import sys
-inputF = sys.stdin.readline
-
-n, bus = map(int, inputF().split())
-count =0
-order = [[float('inf')]*n for _ in range(n)]
-for i in range(n):
-    order[i][i] = 0
-
-for _ in range(bus): 
-    x, y= map(int, inputF().split())
-    order[x-1][y-1] = 1
-
-for i in range(n):
-    for j in range(n):  
-        for k in range(n):  
-            order[j][k] = min(order[j][k], order[j][i] + order[i][k])
-tmp = [0 for _ in range(n)]
-for i in range(n):
-    for j in range(n):
-        if order[i][j] == float('inf'):
-            order[i][j] = 0
-        elif order[i][j] !=0:
-            tmp[j] += 1
-            tmp[i] += 1
-
-print(tmp.count(n-1))
-'''
