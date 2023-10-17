@@ -1,4 +1,5 @@
 import sys
+from collections import deque
 input = sys.stdin.readline
 
 n, m = map(int, input().split())
@@ -8,21 +9,21 @@ for i in range(m):
     case.add(a[i])
     for j in range(i+1,m):
         case.add(a[i]+a[j])
-
-dp = [10001 for _ in range(n+1)]
-dp[0] = 0
-
+Q =deque([0])
+visited = set()
+cnt = 0
 for _ in range(n):
-
-    for i in range(n,-1,-1):
-        if dp[i] != 10001:
-            for c in case:
-                if i+c > n:
-                    continue
-                dp[i+c] = min(dp[i+c],dp[i]+1)
-    if dp[-1] != 10001:
-        break
-if dp[-1] != 10001:
-    print(dp[-1])
-else:
-    print(-1)
+    cnt += 1
+    L = len(Q)
+    for _ in range(L):
+        b = Q.popleft()
+        for c in case:
+            A = c+b
+            if A == n:
+                print(cnt)
+                exit()
+            if A in visited:
+                continue
+            Q.append(A)
+            visited.add(A)
+print(-1)
