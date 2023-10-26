@@ -14,16 +14,16 @@ while Q:
     if a == K:
         cnt += 1
     if 0 <= a+1 <= 100000:
-        if visited[a+1] > visited[a] or visited[a+1] == sys.maxsize :
+        if visited[a+1] > visited[a] :
             visited[a+1] = visited[a] + 1
             Q.append(a+1)
     if 0 <= a-1 <= 100000:
-        if visited[a-1] > visited[a] or visited[a-1] == sys.maxsize :
+        if visited[a-1] > visited[a] :
             visited[a-1] = visited[a] + 1
             Q.append(a-1)
 
     if 0 <= a*2 <= 100000:
-        if visited[a*2] > visited[a] or visited[a*2] == sys.maxsize :
+        if visited[a*2] > visited[a] :
             visited[a*2] = visited[a] + 1
             Q.append(a*2)
 
