@@ -5,28 +5,36 @@ input = sys.stdin.readline
 t = 1
 for __ in range(t):
     n, m = map(int, input().split())
-    tmp1 = list(map(int, input().split()))
+    tmp1 = list(map(int, input().split()))  # 계수
     graph = [[] for _ in range(n)]
     tmp = [list(map(int, input().split())) for i in range(m)]
-    # tmp1 = list(map(int, input().split()))
     for a,b,c in tmp:
-        graph[a - 1].append((b - 1, c*(tmp1[a-1])))
-        graph[b - 1].append((a - 1, c * (tmp1[b - 1])))
+        graph[a - 1].append((b - 1, c))
+        graph[b - 1].append((a - 1, c ))
 
-    dist = [float("inf") for _ in range(n)]
     pq = []
-
     start = 0  # 시작 노드
-    heapq.heappush(pq, (0, start))
-    dist[start] = 0  # The shortest path from a node to itself is 0
+    heapq.heappush(pq, (0, start,tmp1[start]))
+    dist = [[sys.maxsize for _ in range(2501)] for _ in range(n)]
+    dist[0][tmp1[0]] = 0
+
     while pq:
-        cdist, node = heapq.heappop(pq)
-        if cdist != dist[node]:
+        cdist, node, weight = heapq.heappop(pq)
+
+        if dist[node][weight] < cdist:
             continue
 
-        for i in graph[node]:
-            if cdist + i[1] < dist[i[0]]:
-                dist[i[0]] = cdist + i[1]
-                heapq.heappush(pq, (dist[i[0]], i[0]))
+        if node == n-1:
+            print(cdist)
+            break
 
-    print(dist[n-1])
+        for k in graph[node]:
+            nod = k[0]
+            dis = k[1]
+            weigh = min(weight, tmp1[nod])
+            dis = dis*weight + cdist
+
+            if dist[nod][weight] > dis:
+                dist[nod][weight] = dis
+                heapq.heappush(pq,(dis, nod, weigh))
+
