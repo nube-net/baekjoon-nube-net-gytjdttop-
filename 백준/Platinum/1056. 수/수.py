@@ -28,7 +28,7 @@ def update(n):
     else:
         dic[n] = n-1
 
-    for x in range(1,62):
+    for x in range(1,61):
         m = bs(x, n) # n보다 같거나 큰 m^x
         if m>=n:
             continue
