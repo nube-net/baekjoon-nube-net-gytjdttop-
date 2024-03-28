@@ -1,8 +1,9 @@
 import sys
+input = sys.stdin.readline
 
-S = list(sys.stdin.readline().rstrip())
+S = list(input().rstrip())
 
-stack = []  # 연산자
+stack = [] 
 result = []
 cnt = 0
 order = {'+': 2, '-': 2, '*': 1, '/': 1, '(': 3, ')': 3}
