@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 166640 KB, 시간: 176 ms
+메모리: 68364 KB, 시간: 204 ms
 
 ### 분류
 
@@ -12,7 +12,7 @@
 
 ### 제출 일자
 
-2024년 10월 11일 08:12:14
+2024년 10월 11일 08:31:04
 
 ### 문제 설명
 
@@ -23,7 +23,7 @@
 	<li>배열 B를 배열 A에 복사한다.</li>
 </ol>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 359px; height: 186px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/f991c11b-4a4f-4cf5-b0a3-63b3380e6e6c/-/preview/" style="width: 359px; height: 186px;"></p>
 
 <p>위에서 보인 그림처럼 순서 섞기 연산을 하면 배열 A의 값은 다음과 같이 변경된다.</p>
 
