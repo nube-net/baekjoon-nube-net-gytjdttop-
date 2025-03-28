@@ -1,3 +1,5 @@
+import sys
+input = sys.stdin.readline
 n, k, x = map(int, input().split())
 arr =[0,0,-1,-1,-1,-2,-2,-2,-2,-2]
 if n==1:
@@ -16,4 +18,3 @@ else:
         if str(tmp)[0] == "4":
             ans += 1
     print(ans)
-    
