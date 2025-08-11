@@ -8,8 +8,8 @@ for _ in range(n):
     d = 1
     while k > 0:  # 이진수 반복 분해
         if k < d:
-            d = 1
-            continue
+            a.append((v*k,c*k))
+            break
         else:
             k -= d
             a.append((v*d,c*d))
