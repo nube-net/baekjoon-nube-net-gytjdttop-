@@ -1,24 +1,16 @@
 import sys
-from collections import deque
-input =sys.stdin.readline
+input = sys.stdin.readline
 
 n = int(input())
-num =  list(map(int,  input().split()))
-result  = deque()
-stack = []
-result.appendleft(-1)
-while num:
-    tmp = num.pop()
-    
-    while stack:
-        if stack[-1] > tmp:
-            result.appendleft(stack[-1])
-            break
-        else:
-            stack.pop()
-            if not stack:
-                result.appendleft(-1)
-    stack.append(tmp)
-result =list(result)
-print(*result)
+arr = list(map(int, input().split()))
+result =[ -1 for _ in range(n)]
+stack = [] 
 
+for i in range(n - 1, -1, -1):  
+    while stack and stack[-1] <= arr[i]:
+        stack.pop()
+    if stack:
+        result[i] = stack[-1]
+    stack.append(arr[i])
+
+print(*result)
