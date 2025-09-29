@@ -1,7 +1,7 @@
 from heapq import heappush,heappop
 import sys
 input =sys.stdin.readline
-
+# 허프만코드 자료 찜하기
 t = int(input())
 for _ in range(t):
     n, k = map(int, input().split())
